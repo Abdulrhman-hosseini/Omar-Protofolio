@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Omar Emad Eldin Fouad — Portfolio</title>
+  <meta name="description" content="Biotechnology Student Portfolio" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    :root{
+      --bg:#0b0b16;
+      --card: rgba(255,255,255,0.06);
+      --accent: #0d6efd;
+      --muted: #bfc7d6;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;font-family:Inter, sans-serif;color:#e9eef8;background:var(--bg);} 
+    a{color:var(--accent);text-decoration:none;transition:0.3s}
+    .container{max-width:1100px;margin:0 auto;padding:24px}
+
+    /* NAVBAR */
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0;position:sticky;top:0;z-index:100;background:#0b0b16e6;backdrop-filter:blur(10px)}
+    .brand{font-weight:700;color:#fff;font-size:1.4rem}
+    .nav-links{display:flex;gap:14px}
+    .nav-links a{color:#dbe7ff;padding:8px 12px;border-radius:8px}
+    .nav-links a:hover{background:rgba(255,255,255,0.1);color:#fff}
+    .menu-toggle{display:none}
+
+    /* HERO */
+    .hero{display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:center;padding:80px 0}
+    .hero h1{margin:0;font-size:42px;color:#fff}
+    .typewriter{color: var(--accent);font-weight:800}
+    .lead{color:var(--muted);line-height:1.6}
+    .btn{display:inline-block;padding:12px 20px;border-radius:10px;background:var(--accent);color:#fff;font-weight:600;margin-top:18px;transition:0.3s}
+    .btn:hover{background:#0a58ca;transform:translateY(-3px)}
+    .avatar{width:300px;height:300px;border-radius:50%;object-fit:cover;border:6px solid #0b0b16;box-shadow:0 10px 30px rgba(0,0,0,0.6);transition:0.4s}
+    .avatar:hover{transform:scale(1.05) rotate(2deg)}
+
+    /* SECTION TITLES */
+    section h2{text-align:center;color:#fff;font-size:28px;margin-bottom:14px}
+    .underline{width:90px;height:4px;background:var(--accent);border-radius:4px;margin:0 auto 28px}
+
+    /* ABOUT */
+    .about-grid{display:flex;gap:40px;align-items:center;flex-wrap:wrap;justify-content:center}
+    .about-grid img{width:280px;height:280px;border-radius:50%;object-fit:cover;border:6px solid #0b0b16;box-shadow:0 10px 30px rgba(0,0,0,0.6);transition:0.4s}
+    .about-grid .text{flex:1;min-width:260px;color:var(--muted);font-size:1.1rem;line-height:1.8;text-align:left}
+
+    /* GRID / CARDS */
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+    .card{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.06);transition:0.4s;text-align:center;position:relative;overflow:hidden}
+    .card:hover{transform:translateY(-10px) scale(1.05);box-shadow:0 8px 25px rgba(0,0,0,0.5)}
+    .card h3{margin-top:0;color:#fff}
+    .card p{color:var(--muted)}
+
+    /* Skill image hover */
+    .skill img{width:70px;height:70px;object-fit:contain;margin-bottom:10px;transition:0.4s}
+    .card:hover .skill img{transform:scale(1.2) rotate(8deg)}
+
+    /* PROJECTS */
+    .project-card{background:linear-gradient(145deg,#101020,#181832);padding:20px;border-radius:16px;transition:.4s;text-align:center}
+    .project-card:hover{transform:translateY(-8px) scale(1.05);box-shadow:0 8px 25px rgba(0,0,0,0.5)}
+    .project-card h3{color:#fff}
+    .project-card p{color:var(--muted)}
+    .project-card .actions{margin-top:10px}
+    .project-card .view{display:inline-block;padding:8px 14px;border-radius:8px;border:1px solid var(--accent);color:#fff;transition:0.3s}
+    .project-card .view:hover{background:var(--accent);color:#fff}
+
+    /* SERVICES */
+.service-card {
+  text-align: center;
+  padding: 22px;
+  transition: 0.4s;
+}
+.service-card i {
+  color: var(--accent);
+  margin-bottom: 12px;
+  transition: 0.3s;
+}
+.service-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+}
+.service-card:hover i {
+  color: #fff;
+  transform: scale(1.2) rotate(8deg);
+}
+
+    /* CONTACT */
+    .contact .icons{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:20px}
+    .icon{width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.05);color:#fff;font-size:22px;transition:0.3s}
+    .icon:hover{background:var(--accent);transform:scale(1.1)}
+
+    /* Responsive */
+    @media(max-width:900px){
+      .hero{grid-template-columns:1fr;text-align:center}
+      .avatar{margin:20px auto}
+      .about-grid{flex-direction:column;text-align:center}
+      .about-grid .text{text-align:center}
+      .nav-links{display:none;flex-direction:column;gap:10px;background:#111;padding:20px;position:absolute;top:60px;right:20px;border-radius:10px}
+      .menu-toggle{display:block;color:#fff;cursor:pointer}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- NAV -->
+    <nav class="nav">
+      <div class="brand">Portfolio</div>
+      <div class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="menu-toggle" id="menuToggle"><i class="fa fa-bars"></i></div>
+    </nav>
+
+    <!-- HERO -->
+    <section id="home" class="hero">
+      <div>
+        <h1>Hi, I'm <span class="typewriter" id="typewriter">Omar Emad Eldin Fouad</span></h1>
+        <p class="lead">Biotechnology Student at Ain Shams University — Passionate about Food Safety, Quality Control, and Research.</p>
+        <a class="btn" href="Assest/Omar Emad_CV 2.pdf" download>Download CV 📄</a>
+      </div>
+      <div>
+        <img src="Assest/WhatsApp Image 2025-11-17 at 17.08.55_523bc000.jpg" alt="profile" class="avatar">
+      </div>
+    </section>
+<br><br><br>
+    <!-- ABOUT -->
+    <section id="about">
+      <h2>About Me</h2>
+      <div class="underline"></div>
+      <div class="about-grid">
+        <img src="Assest/WhatsApp Image 2025-11-17 at 17.08.55_523bc000.jpg" alt="About">
+        <div class="text">
+          <h3>I'm <strong>Omar Emad Eldin Fouad</strong>, a Biotechnology student at Ain Shams University.  
+          I have a strong focus on <strong>Food Safety</strong>, <strong>Quality Control</strong>, <strong>Microbiology</strong>, and <strong>Tissue Culture</strong>.  
+          Passionate about <strong>scientific research</strong> and applying biotechnological principles to improve food quality, safety, and innovation.</h3>
+        </div>
+      </div>
+    </section>
+<br><br><br>
+    <!-- EDUCATION -->
+    <section id="education">
+      <h2>🎓 Education</h2>
+      <div class="underline"></div>
+      <div class="grid">
+        <div class="card fade-up"><h3>Bachelor's in Biotechnology & Genetic Engineering</h3><p>Ain Shams University • Faculty of Agriculture • Expected 2027</p></div>
+        <div class="card fade-up"><h3>Relevant Courses</h3><p>Molecular Biology, Microbiology, Tissue Culture Techniques, Quality Management</p></div>
+      </div>
+    </section>
+<br><br><br>
+<!-- SKILLS -->
+<section id="skills">
+  <h2>🚀 Skills</h2>
+  <div class="underline"></div>
+
+  <div class="grid">
+    <!-- Technical Skills -->
+    <div class="card fade-up">
+      <h3>Technical Skills</h3>
+      <p>
+        Food Safety Systems (HACCP, ISO 22000, GMP)<br>
+        Microbiological Analysis<br>
+        Quality Control & Documentation<br>
+        Tissue Culture<br>
+        PCR<br>
+        DNA Extraction
+      </p>
+    </div>
+
+    <!-- Soft Skills -->
+    <div class="card fade-up">
+      <h3>Soft Skills</h3>
+      <p>
+        Communication<br>
+        Teamwork<br>
+        Problem-Solving<br>
+        Time Management<br>
+        Attention to Detail
+      </p>
+    </div>
+
+    <!-- Research Skills -->
+    <div class="card fade-up">
+      <h3>Research Skills</h3>
+      <p>
+        Scientific Literature Review<br>
+        Experimental Design<br>
+        Data Analysis<br>
+        Lab Reporting & Documentation<br>
+        Presentation & Communication of Results
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<br><br><br>
+    <!-- PROJECTS -->
+    <section id="projects">
+      <h2>My Certifications & Workshops</h2>
+      <div class="underline"></div>
+      <div class="grid">
+        <div class="project-card fade-up"><h3>Food Safety & ISO 22000</h3><p>Egyptian Organization for Standardization (EOS)</p></div>
+        <div class="project-card fade-up"><h3>Clinical Microbiology Workshop</h3><p>Creative Egyptian Biotechnologists (CEB)</p></div>
+        <div class="project-card fade-up"><h3>Scientific Research Training Program</h3><p>Ain Shams University — URI</p></div>
+        <div class="project-card fade-up"><h3>PCR & Gel Electrophoresis Workshop</h3><p>CEB Company</p></div>
+      </div>
+    </section>
+<br><br><br>
+    <!-- CONTACT -->
+    <section id="contact">
+      <h2>Contact Me</h2>
+      <div class="underline"></div>
+      <p class="lead" style="text-align:center">Feel free to connect with me 👇</p>
+      <div class="contact">
+        <div class="icons">
+          <a class="icon" href="https://wa.me/01060640100"><i class="fa-brands fa-whatsapp"></i></a>
+          <a class="icon" href="https://www.linkedin.com/in/omar-emad-biotec/"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a class="icon" href="https://omaremadfouad2222gmail.com/"><i class="fa-regular fa-envelope"></i></a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const el = document.getElementById('typewriter');
+    const text = el.textContent.trim();
+    el.textContent = '';
+    let i=0, forward=true;
+    function typeLoop(){
+      if(forward){
+        if(i<=text.length){ el.textContent=text.slice(0,i); i++; }
+        else{ forward=false; setTimeout(typeLoop,1000); return; }
+      } else {
+        if(i>=0){ el.textContent=text.slice(0,i); i--; }
+        else{ forward=true; }
+      }
+      setTimeout(typeLoop, forward?100:60);
+    }
+    typeLoop();
+
+    const faders=document.querySelectorAll('.fade-up');
+    const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible')}})},{threshold:0.2});
+    faders.forEach(f=>obs.observe(f));
+
+    document.getElementById('menuToggle').onclick=()=>{ 
+      const nav=document.getElementById('navLinks');
+      nav.style.display=nav.style.display==='flex'?'none':'flex';
+    };
+  </script>
+</body>
+</html>
